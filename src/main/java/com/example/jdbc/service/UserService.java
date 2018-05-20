@@ -1,6 +1,5 @@
-package com.example.service;
+package com.example.jdbc.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,14 +7,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.dao.UserDao;
-import com.example.dao.UserRepo;
-import com.example.model.User;
+import com.example.jdbc.dao.UserDao;
+import com.example.jdbc.model.User;
 
 @Service
 public class UserService {
-	@Autowired
-	private UserRepo userRepo;
 	
 	@Autowired
 	private UserDao userDao;
@@ -34,12 +30,9 @@ public class UserService {
 //	use it if it has to lock the whole table, such as doing sum, count
 	public void create(User user) {
 		userDao.addUser(user);
-		userDao.addHistory(user.id, "create");
 	}
 
 	public List<User> getUsers() {
-		List<User> list = new ArrayList<User>();
-		userRepo.findAll().forEach(list::add);
-		return list;
+		return userDao.getUsers();
 	}
 }

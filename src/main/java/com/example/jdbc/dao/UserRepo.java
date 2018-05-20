@@ -1,14 +1,14 @@
-package com.example.dao;
+package com.example.jdbc.dao;
 
 import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-import com.example.model.User;
+import com.example.jdbc.model.User;
 
-@Component
+@Repository
 public class UserRepo implements CrudRepository<User, String> {
 
 	@Override

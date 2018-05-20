@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.jdbc.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,7 +10,7 @@ public class User {
 	@Id
 	public String id;
 	public String name;
-	public int age;
+	public int age = 0;
 	public String gender;
 	public String genderText;
 	public String createTime;

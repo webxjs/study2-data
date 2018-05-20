@@ -21,6 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.example.app.Study2DataApplication;
+import com.example.jdbc.controller.UserController;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(UserController.class)
@@ -37,13 +38,13 @@ public class UserControllerTests {
     
     @Test
     public void testUsers_hello() throws Exception {
-    	this.mvc.perform(get("/hello")).andDo(print()).andExpect(status().isOk())
+    	this.mvc.perform(get("/jdbc/hello")).andDo(print()).andExpect(status().isOk())
         .andExpect(content().string(containsString("123")));
     }
     
     @Test
     public void testUsers_getUsers() throws Exception {
-    	this.mvc.perform(get("/users")).andDo(print()).andExpect(status().isOk())
-        .andExpect(content().string(containsString("name2")));
+    	this.mvc.perform(get("/jdbc/users")).andDo(print()).andExpect(status().isOk())
+        .andExpect(content().string(containsString("Jacky")));
     }
 }
